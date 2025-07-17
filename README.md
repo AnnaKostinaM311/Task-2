@@ -16,6 +16,14 @@ LDLL (LDL-подобный показатель)
 
 Каждый эндпоинт принимает GET-запросы, валидирует их и возвращает прогноз в формате JSON.
 
+API Endpoints
+
+Общий формат запроса: 
+
+```
+GET http://localhost:8080/predict/{indicator}?param1=value1&param2=value2...
+```
+Где {indicator} — один из поддерживаемых показателей (hba1c, tg, hdl, ldl, ferr, ldll).
 
 
 
