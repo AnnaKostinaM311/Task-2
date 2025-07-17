@@ -16,7 +16,36 @@ LDLL (LDL-подобный показатель)
 
 Каждый эндпоинт принимает GET-запросы, валидирует их и возвращает прогноз в формате JSON.
 
-2.API Endpoints
+2.Структура проекта
+
+```
+project/
+├── cmd/
+│   └── app/
+│       └── main.go
+├── config/
+│   └── config.go
+├── internal/
+│   ├── handler/
+│   |   └── api.go
+│   ├── models/
+│   │   └── health_data.go
+│   ├── interfaces/
+│   │   └── service.go
+│   ├── services/
+│   │   └── prediction_service.go
+│   └── middleware/
+│       └── auth.go
+├── pkg/
+│   └── logger/
+│       └── logger.go
+├── go.mod
+├── go.sum
+├── README.md
+└── config.yml
+```
+
+3.API Endpoints
 
 Общий формат запроса: 
 
@@ -25,7 +54,7 @@ GET http://localhost:8080/predict/{indicator}?param1=value1&param2=value2...
 ```
 Где {indicator} — один из поддерживаемых показателей (hba1c, tg, hdl, ldl, ferr, ldll).
 
-3.Примеры вызовов
+4.Примеры вызовов
 
 Тестирование происходит через Postman. 
 Запрос прогноза HbA1C: 
@@ -114,7 +143,7 @@ GET http://localhost:8080/predict/hdl?age=20&gender=1&rdw=10&wbc=2&rbc=3&hgb=4&h
 }
 ```
 
-4.Обработка ошибок
+5.Обработка ошибок
 
 Сервер возвращает следующие HTTP-статусы:
 
